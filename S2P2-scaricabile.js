@@ -41,35 +41,38 @@ const sconto30 = 0.3
 let utenti = []
 utenti.push(marco, paul, amy)
 console.log(utenti)
-let utenteCheEffettuaLAcquisto = {
-  name: prompt("Inserisci il tuo nome"),
-  lastName: prompt("Inserisci il tuo cognome"),
-}
 let contrUtenti = 0
 let utenteRegistrato = false
-console.log(utenteCheEffettuaLAcquisto)
 
-for (let utente of utenti) {
-  if (utente.name == utenteCheEffettuaLAcquisto.name && utente.lastName == utenteCheEffettuaLAcquisto.lastName) {
-    utenteRegistrato = true
-    if (utente.isAmbassador) {
-      console.log(`Ciao ${utente.name} ${utente.lastName}, sei un nostro Ambassador quindi hai diritto al 30% di sconto`)
-      calcoloCarrello()
-      totCarrello = totCarrello * sconto30
-    } else {
-      calcoloCarrello()
-    }
-    if (totCarrello > 100) {
-      console.log(`Complimenti ${utente.name}, hai superato i 100 euro di spesa ed hai diritto alla spedizione gratuita`)
-    } else {
-      totCarrello += shippingCost
-    }
-    console.log(`${utente.name} ${utente.lastName}, il totale del tuo carrello è ${totCarrello}`)
+function eseguiCodice() {
+  let nome = document.getElementById('Nome').value;
+  let cognome = document.getElementById('Cognome').value;
+  let utenteCheEffettuaLAcquisto = {
+    name: nome,
+    lastName: cognome,
   }
-  contrUtenti++
-}
-if ((contrUtenti == utenti.length) && (utenteRegistrato == false)) {
-  console.log("Utente non registrato")
+  for (let utente of utenti) {
+    if (utente.name == utenteCheEffettuaLAcquisto.name && utente.lastName == utenteCheEffettuaLAcquisto.lastName) {
+      utenteRegistrato = true
+      if (utente.isAmbassador) {
+        console.log(`Ciao ${utente.name} ${utente.lastName}, sei un nostro Ambassador quindi hai diritto al 30% di sconto`)
+        calcoloCarrello()
+        totCarrello = totCarrello * sconto30
+      } else {
+        calcoloCarrello()
+      }
+      if (totCarrello > 100) {
+        console.log(`Complimenti ${utente.name}, hai superato i 100 euro di spesa ed hai diritto alla spedizione gratuita`)
+      } else {
+        totCarrello += shippingCost
+      }
+      console.log(`${utente.name} ${utente.lastName}, il totale del tuo carrello è ${totCarrello}`)
+    }
+    contrUtenti++
+  }
+  if ((contrUtenti == utenti.length) && (utenteRegistrato == false)) {
+    console.log("Utente non registrato")
+  }
 }
 
 function calcoloCarrello() {
