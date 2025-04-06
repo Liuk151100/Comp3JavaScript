@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="S2P2-scaricabile.js"></script>
 </head>
 
 <body>
-    <input id="Nome" name="Nome" type="text">
-    <input id="Cognome" name="Cognome" type="text">
-    <button onclick="eseguiCodice()">Accedi</button>
+    <div class="Login">
+        <input class="campoLogin" id="Nome" name="Nome" type="text">
+        <input class="campoLogin" id="Cognome" name="Cognome" type="text">
+        <button class="pulsLogin" onclick="eseguiCodice()">Accedi </button>
+        <p id="erroreUtente">Utente non registrato</p>
+    </div>
 </body>
 
 </html>

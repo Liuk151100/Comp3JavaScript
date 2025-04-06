@@ -53,6 +53,7 @@ function eseguiCodice() {
   }
   for (let utente of utenti) {
     if (utente.name == utenteCheEffettuaLAcquisto.name && utente.lastName == utenteCheEffettuaLAcquisto.lastName) {
+      location.href = "index2.html"
       utenteRegistrato = true
       if (utente.isAmbassador) {
         console.log(`Ciao ${utente.name} ${utente.lastName}, sei un nostro Ambassador quindi hai diritto al 30% di sconto`)
